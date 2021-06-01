@@ -6,7 +6,7 @@
 /*   By: el <el@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/27 19:26:52 by ashamurz          #+#    #+#             */
-/*   Updated: 2021/05/30 16:24:59 by el               ###   ########.fr       */
+/*   Updated: 2021/06/01 03:10:01 by el               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,22 +93,23 @@ int ft_printf(const char *format, ...)
 {
     int i;
     char *str;
-    char res;
+    char *res;
+    char *k;
+    
     i = 0;
+    
 
     str = (char*) format;
-    res = ft_putstr(str);
-    if (str[i] == ft_strchr(res, '%'))
-    {
-        ft_putchar('x');
-    }
-    return (res);
+    res = ft_strchr(str, '%');
     
-    //str = ft_putstr((char*)format);
-    // if (str)
-    // {
-    //     /* code */
-    // }
+    if ((*res) == '%')
+    {
+        return ft_putchar('x');
+        
+    }
+    return ft_putstr(str);
+    
+    
 
 }
    
@@ -117,7 +118,7 @@ int ft_printf(const char *format, ...)
 
 
 int main()
-{   
-    ft_printf("hell%o");
+{   ft_printf("hell%o");
+    //ft_strchr("hel%lo", '%');
     return (0);
 }
